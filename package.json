@@ -1,0 +1,29 @@
+{
+  "name": "comments",
+  "version": "1.0.0",
+  "description": "Commenting setup",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asconwe/comments.git"
+  },
+  "author": "August",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asconwe/comments/issues"
+  },
+  "homepage": "https://github.com/asconwe/comments#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bunch-o-controllers": "file:///C:\\Users\\augus\\Documents\\Bootcamp\\packages\\bunch-o-controllers",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.5",
+    "request": "^2.81.0"
+  }
+}
