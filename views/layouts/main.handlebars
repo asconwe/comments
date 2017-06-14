@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Ars Commenter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="/modal.js"></script>
 </head>
+
 <body>
-    <button class="refresh">Refresh</button>
-    {{{body}}}
-    <button class="refresh">Refresh</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <button class="refresh btn btn-default">Refresh</button>
+                    <hr>
+                </div>
+                <div class="row">{{{body}}}</div>
+                <div class="row">
+                    <hr>
+                    <button class="refresh btn btn-default">Refresh</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" display="none">
+        <form action="/api/comment/new">
+            <input type="text" placeholder="Header" name="header">
+            <input type="text-area" placeholder="Your comment" name="body">
+        </form>
+    </div>
 </body>
+
 </html>

@@ -1,6 +1,3 @@
-/* Scraping into DB (18.2.5)
- * ========================== */
-
 // Dependencies
 var bodyParser = require("body-parser");
 var express = require("express");
@@ -9,11 +6,17 @@ var mongoose = require("mongoose");
 var request = require("request");
 var cheerio = require("cheerio");
 var bunchOControllers = require("bunch-o-controllers");
+var exphbs = require("express-handlebars");
 
-mongoose.Promise = Promise;
+mongoose.Promise = Promise; // What is this for? I'm not using promises with Mongoose, am I?
 
 // Initialize Express
 var app = express();
+
+// Set view engine
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Use body-parser in our app
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));

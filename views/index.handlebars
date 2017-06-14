@@ -1,5 +1,9 @@
-{{#each article}}
-<a href="{{article.link}}">{{article.title}}</a>
-<p>{{article.pubDate}}</p>
-<button>{{article.numComments}}Comments</button>
+{{#each articles}}
+<div class="col-xs-12 panel panel-default">
+    <div class="panel-body">
+        <a href="{{this.link}}"><h4>{{{this.title}}}</h4></a>
+        <p>{{this.pubDate}}</p>
+        <button class="comments btn btn-default" data-object_id="{{this._id}}">{{this.numbComments}}Comments</button>
+    </div>
+</div>
 {{/each}}
