@@ -5,7 +5,7 @@ var mongojs = require("mongojs");
 var mongoose = require("mongoose");
 var request = require("request");
 var cheerio = require("cheerio");
-var bunchOControllers = require("bunch-o-controllers");
+var bunchOControllers = require("./node_modules/bunch-o-controllers");
 var exphbs = require("express-handlebars");
 
 mongoose.Promise = Promise; // What is this for? I'm not using promises with Mongoose, am I?
@@ -22,11 +22,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 // Database configuration
-// if (process.env.MONGODB_URI) {
-//   mongoose.connect(process.env.MONGODB_URI)
-// } else {
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
   mongoose.connect("mongodb://localhost/comments")
-// }
+}
 var db = mongoose.connection;
 
 // Show any mongoose errors

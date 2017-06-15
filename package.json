@@ -19,7 +19,6 @@
   "homepage": "https://github.com/asconwe/comments#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "bunch-o-controllers": "file:///C:\\Users\\augus\\Documents\\Bootcamp\\packages\\bunch-o-controllers",
     "cheerio": "^1.0.0-rc.1",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
