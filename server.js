@@ -5,8 +5,8 @@ var express = require("express");
 var mongoose = require("mongoose");
 var request = require("request");
 var cheerio = require("cheerio");
-var bunchOControllers = require("./node_modules/bunch-o-controllers");
 var exphbs = require("express-handlebars");
+var controllers = require("./controller.js");
 
 mongoose.Promise = Promise; // What is this for? I'm not using promises with Mongoose, am I?
 
@@ -40,7 +40,7 @@ db.once("open", function() {
 });
 
 // Initialize all controllers passing the server app as an argument
-bunchOControllers(app);
+controllers(app);
 
 // Listen on port 3000
 app.listen(3000, function () {
