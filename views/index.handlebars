@@ -1,9 +1,45 @@
 {{#each articles}}
 <div class="col-xs-12 panel panel-default">
-    <div class="panel-body">
-        <a href="{{this.link}}"><h4>{{{this.title}}}</h4></a>
+    <div id="{{this._id}}" class="panel-body">
+        <a href="{{this.link}}">
+            <h4>{{{this.title}}}</h4>
+        </a>
         <p>{{this.pubDate}}</p>
-        <button class="comments btn btn-default" data-object_id="{{this._id}}">{{this.numbComments}}Comments</button>
+        <a href="/comments/{{this._id}}"><button class="comments btn btn-default" data-object_id="{{this._id}}">{{this.numbComments}} Comments</button></a>        {{#if this.commentsOpen}}
+        <div class="row">
+            <div class="col-xs-12">
+                <form class="comment-form" action="/api/new/comment" method="POST">
+
+                    <input type="hidden" name="_id" value="{{this._id}}">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4">
+                            <input type="text" class="form-control" placeholder="Header" name="header">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="textarea" class="form-control" placeholder="Your comment" name="body">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="submit" class="btn btn-default">
+                            <button class="cancel btn btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{#each this.comments}}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{this.heading}}</div>
+                    <div class="panel-body">{{this.body}}</div>
+                </div>
+            </div>
+        </div>
+        {{/each}} {{/if}}
     </div>
 </div>
 {{/each}}

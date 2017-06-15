@@ -1,12 +1,22 @@
 var mongoose = require("mongoose");
+// var Comment = require("./comment.js");
+
+var commentSchema = mongoose.Schema({
+    heading: String,
+    body: String,
+});
 
 var articleSchema = mongoose.Schema({
     title: String,
     link: String,
     pubDate: String,
-    comments: Array,
-    // numbComments: () => this.comments.length
+    commentsOpen: Boolean,
+    comments: [commentSchema]
 });
+
+articleSchema.methods.getNumbComments = function () { 
+    return this.comments.length;
+}
 
 var Article = mongoose.model('Article', articleSchema);
 

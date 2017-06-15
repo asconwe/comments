@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-    <script src="/modal.js"></script>
+    {{!--<script src="/modal.js"></script>--}}
 </head>
 
 <body>
@@ -28,12 +28,14 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal" display="none">
-        <form action="/api/comment/new">
-            <input type="text" placeholder="Header" name="header">
-            <input type="text-area" placeholder="Your comment" name="body">
-        </form>
+        <div display="none">
+            <form class="comment-form" action="/api/new/comment" method="POST">
+                <input type="text" placeholder="Header" name="header">
+                <input type="text-area" placeholder="Your comment" name="body">
+                <input type="submit" class="btn btn-default">
+                <button class="cancel btn btn-default">Cancel</button>
+            </form>
+        </div>
     </div>
 </body>
 

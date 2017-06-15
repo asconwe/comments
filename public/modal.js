@@ -1,10 +1,19 @@
 $(document).ready(function () { 
     $('.comments').click(function () { 
-        $('.modal').show();
-        console.log('hey')
+        // Get object_id for target
+        var _id = $(this).data("object_id");
+        // Get comment form HTML
+        var commentForm = $('.comment-form');
+        commentForm.prepend('<input type="hidden" name="_id" value="' + _id + '">');
+        // Add the comment form 
+        $("#" + _id).append(commentForm);
+        
+        $.get("/api/comments/" + _id).done(function (result) { 
+            console.log(result);
+        })
     })
 
-    $('.close').click(function () { 
-        $('.modal').hide();
+    $('.cancel').click(function (e) { 
+        e.preventDefault();
     })
 })   
