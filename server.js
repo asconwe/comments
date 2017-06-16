@@ -1,7 +1,7 @@
 // Dependencies
 var bodyParser = require("body-parser");
 var express = require("express");
-// var mongojs = require("mongojs");
+var methodOverride = require("method-override");
 var mongoose = require("mongoose");
 var request = require("request");
 var cheerio = require("cheerio");
@@ -20,6 +20,7 @@ app.set("view engine", "handlebars");
 // Use body-parser in our app
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 // Database configuration
 if (process.env.MONGODB_URI) {

@@ -30,13 +30,17 @@
                 </form>
             </div>
         </div>
-        {{#each this.comments}}
+        {{#each this.comments as |comment key|}}
         <div class="row">
             <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{this.heading}}</div>
-                    <div class="panel-body">{{this.body}}</div>
-                </div>
+                <form class="panel panel-default" action="/api/delete/comment?_method=DELETE" , method="POST">
+                    <div class="panel-heading">{{comment.heading}}</div>
+                    <div class="panel-body">{{comment.body}}
+
+                        <input type="hidden" name="_id" value="{{this._id}}">
+                        <input class="btn btn-default" type="submit" value="Delete Comment" />
+                    </div>
+                </form>
             </div>
         </div>
         {{/each}} {{/if}}

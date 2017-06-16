@@ -14,7 +14,6 @@ function handleScrapedData(html, item, index, articlesArr, finished) {
     var link = $(element).children("guid").html();
     // Save pubDate
     var pubDate = $(element).children("pubDate").text();
-    console.log(index, $(element));
     // If this title element had a title, a link, and a pubDate
     if (title && link && pubDate) {
         console.log("in handle if has props")
@@ -37,6 +36,7 @@ function handleScrapedData(html, item, index, articlesArr, finished) {
                     }
                     // Otherwise,
                     else {
+                        console.log("====================saving=======", savedArticle);
                         savedArticle.numbComments = savedArticle.comments.length;
                         articlesArr.push(savedArticle);
                         if (index >= $(item).length - 1) {
