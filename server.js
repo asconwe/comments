@@ -44,6 +44,7 @@ db.once("open", function() {
 controllers(app);
 
 // Listen on port 3000
-app.listen(3000, function () {
+const PORT = process.env.PORT || 3000,
+app.listen(PORT, function () {
     console.log("App running on http://localhost:3000");
 });
